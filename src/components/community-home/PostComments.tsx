@@ -11,6 +11,8 @@ const PostComments = ({ postId }: TPostComments) => {
   const { data: selectedPostComments, isLoading } =
     useListOfAllCommentsForSelectedPost(postId as string);
 
+  console.log(selectedPostComments);
+
   if (isLoading) return <PostCommentsLoader />;
 
   return (

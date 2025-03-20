@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useLoggedState } from "@/lib/hooks/useLoggedState";
 import NavDropdown from "./NavDropdown";
-import Logo from "@/assets/tribe-logo.png";
+import Logo from "@/assets/UCM.png";
 import NavbarUserMenuDropdown from "./NavbarUserMenuDropdown";
 import NavbarMessagesDropdown from "./NavbarMessagesDropdown";
 import { cn } from "@/lib/utils";
@@ -29,7 +29,12 @@ const Navbar = () => {
       <nav className="flex items-center justify-between w-full h-full mx-auto max-w-1075">
         <div className="flex items-center gap-4">
           <Link to="/" className="text-4xl font-bold">
-            <img src={Logo} alt="Tribe" width={120} height={44} />
+            <img
+              src={Logo}
+              alt="UNIJOS CAMPUS MARKET"
+              width={100}
+              height={44}
+            />
           </Link>
           <NavDropdown />
         </div>

@@ -4,7 +4,7 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import Logo from "@/assets/tribe-logo.png";
+import Logo from "@/assets/UCM.png";
 import CreateCommunityStepOne from "@/components/create-community/CreateCommunityStepOne";
 import CreateCommunityStepThree from "@/components/create-community/CreateCommunityStepThree";
 import CreateCommunityStepTwo from "@/components/create-community/CreateCommunityStepTwo";
@@ -81,7 +81,7 @@ function RouteComponent() {
       const response = await mutateAsyncCreateCommunity({ formData });
       navigate({ to: `/${response?.id}` });
       toast("Congratulations!", {
-        description: "Your community was created successfully",
+        description: "Your store was created successfully",
         position: "top-right",
       });
     } catch {
@@ -119,7 +119,7 @@ function RouteComponent() {
   return (
     <main className="flex items-center justify-center flex-col w-full h-full min-h-[calc(100dvh-64px)] pb-6">
       <h1 className="mb-5 text-2xl font-bold text-dark-primary">
-        Create your community
+        Create your Store
       </h1>
 
       <div className="flex flex-col items-center p-8  max-sm:w-full max-sm:text-center w-[452px] h-full bg-white rounded-xl shadow-custom">
@@ -169,7 +169,7 @@ function RouteComponent() {
               {isPending ? (
                 <IconLoader2 className="animate-spin" size={22} />
               ) : (
-                "Create community"
+                "Create Store"
               )}
             </MainButton>
           )}

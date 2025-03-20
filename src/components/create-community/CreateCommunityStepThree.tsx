@@ -21,7 +21,7 @@ const CreateCommunityStepThree = ({
   return (
     <div className="flex flex-col items-center w-full h-full">
       <p className="mb-3 text-sm font-semibold">
-        Select your community banner & avatar
+        Select your store banner & avatar
       </p>
       <div className="relative flex items-center justify-center w-full h-40 overflow-hidden border rounded-lg bg-light-gray">
         {banner ? (
@@ -34,7 +34,7 @@ const CreateCommunityStepThree = ({
           <IconPhotoScan size={60} className="text-grayout" />
         )}
         <input
-          data-testid="community-banner-input"
+          data-testid="store-banner-input"
           onChange={handleBannerChange}
           type="file"
           accept="image/*"
@@ -52,7 +52,7 @@ const CreateCommunityStepThree = ({
           <IconUserFilled className="text-grayout" size={25} />
         </AvatarFallback>
         <input
-          data-testid="community-image-input"
+          data-testid="store-image-input"
           onChange={handleAvatarChange}
           accept="image/*"
           type="file"

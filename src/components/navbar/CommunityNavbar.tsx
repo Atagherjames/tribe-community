@@ -3,7 +3,7 @@ import { Link, useLocation, useParams } from "@tanstack/react-router";
 import useCommunityStore from "@/store/CommunityStore";
 import useUserStore from "@/store/UserStore";
 import { useLoggedState } from "@/lib/hooks/useLoggedState";
-import Logo from "@/assets/tribe-logo.png";
+import Logo from "@/assets/UCM.png";
 import AvatarIcon from "@/components/avatar/AvatarIcon";
 import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";

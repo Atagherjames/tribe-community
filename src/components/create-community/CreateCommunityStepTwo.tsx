@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  communityCategories,
+  storeCategories,
   communityPrices,
   communityTypes,
 } from "@/components/create-community/fieldsData";
@@ -28,7 +28,7 @@ const CreateCommunityStepTwo = ({
   return (
     <div className="flex flex-col items-center w-full h-full gap-6">
       <p className="-mb-2 text-sm font-semibold">
-        Select your community category, type and pricing
+        Select your store category and type
       </p>
       <Controller
         name="category"
@@ -44,7 +44,7 @@ const CreateCommunityStepTwo = ({
               <SelectValue placeholder="Select community category" />
             </SelectTrigger>
             <SelectContent className="max-h-64">
-              {communityCategories.map((category) => (
+              {storeCategories.map((category) => (
                 <SelectItem
                   data-testid={`option-${category.value}`}
                   key={category.value}

@@ -51,7 +51,7 @@ function RouteComponent() {
     <main className="flex flex-col items-center justify-center w-full py-8 mx-auto max-w-1075">
       <div className="flex flex-col items-center w-full text-center">
         <h1 className="text-[45px] font-bold text-dark-primary max-sm:leading-none">
-          Discover communities
+          Discover Stores
         </h1>
         <span className="flex max-sm:mt-4 items-center gap-1.5 text-xl font-medium text-dark-primary">
           <p>or</p>
