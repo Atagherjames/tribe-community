@@ -138,30 +138,14 @@ const discoveryFiltersData: TFilterList[] = [
 const discoveryFiltersTypes: TFilterTypesAndPrice[] = [
   {
     id: 1,
-    name: "all",
-  },
-  {
-    id: 2,
     name: "public",
-  },
-  {
-    id: 3,
-    name: "private",
   },
 ];
 
 const discoveryFiltersPrice: TFilterTypesAndPrice[] = [
   {
     id: 1,
-    name: "all",
-  },
-  {
-    id: 2,
     name: "free",
-  },
-  {
-    id: 3,
-    name: "paid",
   },
 ];
 

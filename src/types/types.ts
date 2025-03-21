@@ -1,8 +1,4 @@
-import {
-  ECommunityCategory,
-  ECommunityPrice,
-  ECommunityType,
-} from "@/enums/enums";
+import { EStoreCategory, EStorePrice, EStoreType } from "@/enums/enums";
 
 export type TDiscoveryQueries = {
   category?: string;
@@ -12,12 +8,12 @@ export type TDiscoveryQueries = {
   chat?: string;
 };
 
-export type TCommunities = {
+export type TStores = {
   id: string;
   name: string;
-  category: ECommunityCategory;
-  price: ECommunityPrice;
-  type: ECommunityType;
+  category: EStoreCategory;
+  price: EStorePrice;
+  type: EStoreType;
   description: string;
   members: string[];
   banner: string;
@@ -38,7 +34,7 @@ export type TUserData = {
   email: string;
   emailVisibility: boolean;
   id: string;
-  name: string;
+  username: string;
   updated: string;
   verified: boolean;
   description: string;

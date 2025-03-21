@@ -1,4 +1,4 @@
-import { EStoreCategory, ECommunityPrice, ECommunityType } from "@/enums/enums";
+import { EStoreCategory, EStorePrice, EStoreType } from "@/enums/enums";
 
 export const storeCategories = [
   { value: EStoreCategory.ELECTRONICS, label: "Electronics" },
@@ -23,12 +23,6 @@ export const storeCategories = [
   { value: EStoreCategory.INDUSTRIAL_SUPPLIES, label: "Industrial Supplies" },
 ];
 
-export const communityTypes = [
-  { value: ECommunityType.PUBLIC, label: "Public" },
-  { value: ECommunityType.PRIVATE, label: "Private" },
-];
+export const communityTypes = [{ value: EStoreType.PUBLIC, label: "Public" }];
 
-export const communityPrices = [
-  { value: ECommunityPrice.FREE, label: "Free" },
-  { value: ECommunityPrice.PAID, label: "Paid (Comming soon)" },
-];
+export const communityPrices = [{ value: EStorePrice.FREE, label: "Free" }];

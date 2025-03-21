@@ -1,19 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { ECommunityType } from "@/enums/enums";
+import { EStoreType, EStorePrice } from "@/enums/enums";
 import { getInitials } from "@/lib/getInitials";
 import { getPocketBaseFileUrl } from "@/lib/getPocketBaseFileUrl";
 import { cn } from "@/lib/utils";
-import { TCommunities } from "@/types/types";
-import {
-  IconLock,
-  IconLockOpen2,
-  IconTag,
-  IconUsers,
-} from "@tabler/icons-react";
+import { TStores } from "@/types/types";
+
+import { IconLockOpen2, IconTag, IconUsers } from "@tabler/icons-react";
 import { Skeleton } from "../ui/skeleton";
 
 type TAboutAndPreviewPageProps = {
-  data?: TCommunities;
+  data?: TStores;
   isLoading: boolean;
 };
 
@@ -46,7 +42,7 @@ const AboutAndPreviewPage = ({
           <>
             {data?.banner ? (
               <img
-                alt="Community banner"
+                alt="Store banner"
                 src={getPocketBaseFileUrl({
                   recordId: data?.id,
                   filename: data?.banner,
@@ -63,17 +59,15 @@ const AboutAndPreviewPage = ({
         )}
         <div className="flex flex-wrap items-center w-full gap-10 mt-10 mb-6 max-md:gap-4">
           <span className="flex items-center gap-2 text-base font-medium capitalize max-md:text-sm whitespace-nowrap text-dark-primary">
-            {data?.type === ECommunityType.PRIVATE ? (
-              <IconLock size={26} />
-            ) : (
-              <IconLockOpen2 size={26} />
-            )}
+            <IconLockOpen2 size={26} />
             {isLoading ? (
               <Skeleton className="h-4 w-28" />
             ) : (
-              <span>{data?.type} group</span>
+              <span>{EStoreType.PUBLIC} store</span>
             )}
           </span>
+
+          {/* Store Members */}
           <span className="flex items-center gap-2 text-base font-medium capitalize max-md:text-sm whitespace-nowrap text-dark-primary">
             <IconUsers size={26} />
             {isLoading ? (
@@ -85,14 +79,17 @@ const AboutAndPreviewPage = ({
               </span>
             )}
           </span>
+
           <span className="flex items-center gap-2 text-base font-medium capitalize max-md:text-sm whitespace-nowrap text-dark-primary">
             <IconTag size={26} />
             {isLoading ? (
               <Skeleton className="h-4 w-28" />
             ) : (
-              <span>{data?.price}</span>
+              <span>{EStorePrice.FREE}</span>
             )}
           </span>
+
+          {/* Store Owner */}
           <div className="flex items-center gap-2 text-base font-medium capitalize max-md:text-sm whitespace-nowrap text-dark-primary">
             {data?.expand?.createdBy?.avatar ? (
               <img
@@ -101,21 +98,25 @@ const AboutAndPreviewPage = ({
                   filename: data?.expand?.createdBy?.avatar,
                   collectionName: data?.expand?.createdBy?.collectionName,
                 })}
-                alt="Community avatar"
+                alt="store avatar"
                 className="object-cover rounded-full size-9 min-h-9 min-w-9"
               />
             ) : (
               <div className="flex items-center justify-center font-medium rounded-full min-h-9 min-w-9 bg-light-gray size-9">
-                <p>{getInitials(data?.expand?.createdBy?.name as string)}</p>
+                <p>
+                  {getInitials(data?.expand?.createdBy?.username as string)}
+                </p>
               </div>
             )}
             {isLoading ? (
               <Skeleton className="h-4 w-28" />
             ) : (
-              <p>By {data?.expand?.createdBy?.name} 👑</p>
+              <p>By {data?.expand?.createdBy?.username} 👑</p>
             )}
           </div>
         </div>
+
+        {/* Store Description */}
         <div>
           {isLoading ? (
             [...Array(6)].map((_, index) => (

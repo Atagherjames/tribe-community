@@ -1,7 +1,7 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   TComment,
-  TCommunities,
+  TStores,
   TConversation,
   TMessage,
   TPost,
@@ -23,11 +23,9 @@ export const useCommunityData = (id: string) => {
   return useQuery({
     queryKey: ["community_data", id],
     queryFn: async () => {
-      const data: TCommunities = await pb
-        .collection("all_communities")
-        .getOne(id, {
-          expand: "createdBy, members",
-        });
+      const data: TStores = await pb.collection("all_communities").getOne(id, {
+        expand: "createdBy, members",
+      });
       return data;
     },
     retry: 0,
@@ -38,7 +36,7 @@ export const useListOfAllCommunities = () => {
   return useQuery({
     queryKey: ["all_communities"],
     queryFn: async () => {
-      const data: TCommunities[] = await pb
+      const data: TStores[] = await pb
         .collection("all_communities")
         .getFullList();
       return data;

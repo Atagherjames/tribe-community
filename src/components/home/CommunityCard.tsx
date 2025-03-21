@@ -1,10 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { getInitials } from "@/lib/getInitials";
 import { getPocketBaseFileUrl } from "@/lib/getPocketBaseFileUrl";
-import { TCommunities } from "@/types/types";
+import { TStores } from "@/types/types";
 
 type TCommunityCard = {
-  item: TCommunities;
+  item: TStores;
   communityRedirection: (
     members: string[]
   ) => "/$id/preview" | "/$id/about" | "/$id";

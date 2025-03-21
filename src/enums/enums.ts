@@ -21,15 +21,10 @@ export enum EStoreCategory {
   HANDMADE = "handmade",
   INDUSTRIAL_SUPPLIES = "industrial-supplies",
 }
-
-export enum ECommunityType {
-  ALL = "all",
+export enum EStoreType {
   PUBLIC = "public",
-  PRIVATE = "private",
 }
 
-export enum ECommunityPrice {
-  ALL = "all",
+export enum EStorePrice {
   FREE = "free",
-  PAID = "paid",
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearch } from "@tanstack/react-router";
-import { ECommunityPrice, ECommunityType } from "@/enums/enums";
+import { EStorePrice, EStoreType } from "@/enums/enums";
 import { TDiscoveryQueries } from "@/types/types";
 
 export const useDiscoveryPriceAndTypeFilters = () => {
@@ -8,10 +8,10 @@ export const useDiscoveryPriceAndTypeFilters = () => {
   const { type, price } = useSearch({ from: "/" });
 
   const [selectedType, setSelectedType] = useState<string>(
-    type || ECommunityType.ALL
+    type || EStoreType.PUBLIC
   );
   const [selectedPrice, setSelectedPrice] = useState<string>(
-    price || ECommunityPrice.ALL
+    price || EStorePrice.FREE
   );
 
   const handleTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,8 +44,8 @@ export const useDiscoveryPriceAndTypeFilters = () => {
   );
 
   useEffect(() => {
-    setSelectedType(type || ECommunityType.ALL);
-    setSelectedPrice(price || ECommunityPrice.ALL);
+    setSelectedType(type || EStoreType.PUBLIC);
+    setSelectedPrice(price || EStorePrice.FREE);
   }, [type, price]);
 
   return {

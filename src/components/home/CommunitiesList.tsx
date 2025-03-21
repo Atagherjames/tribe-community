@@ -39,8 +39,8 @@ const CommunitiesList = () => {
   if (isError) {
     return (
       <p className="mt-6 font-medium">
-        Oops! We couldn&apos;t fetch the communities. Try again later — the
-        internet gremlins are on it! 😢
+        Oops! We couldn&apos;t fetch the stores. Try again later — the internet
+        gremlins are on it! 😢
       </p>
     );
   }
@@ -55,7 +55,7 @@ const CommunitiesList = () => {
           to="/create-community"
           className="px-6 py-2 font-medium rounded-md bg-yellow-primary hover:bg-yellow-primary-hover w-fit"
         >
-          Create community
+          Create store
         </Link>
       </div>
     );
