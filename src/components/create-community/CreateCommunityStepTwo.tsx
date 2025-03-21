@@ -41,7 +41,7 @@ const CreateCommunityStepTwo = ({
               errorMessage={errors?.category?.message}
               className="w-full h-[52px] border text-dark-primary font-base px-4 rounded-md"
             >
-              <SelectValue placeholder="Select community category" />
+              <SelectValue placeholder="Select Store category" />
             </SelectTrigger>
             <SelectContent className="max-h-64">
               {storeCategories.map((category) => (

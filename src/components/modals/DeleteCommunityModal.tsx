@@ -12,12 +12,12 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useNavigate } from "@tanstack/react-router";
-import { TCommunities } from "@/types/types";
+import { TStores } from "@/types/types";
 import { cn } from "@/lib/utils";
 import { IconLoader2 } from "@tabler/icons-react";
 
 type TModalProps = {
-  data?: TCommunities;
+  data?: TStores;
   isOwner: boolean;
 };
 
@@ -34,14 +34,14 @@ const DeleteCommunityModal = ({ data, isOwner }: TModalProps) => {
     try {
       await mutateAsyncDeleteCommunity({ communityId });
 
-      toast.success("Community deleted successfully!", {
+      toast.success("Store deleted successfully!", {
         description:
-          "Feel free to explore other communities or create a new one to keep the fun going!",
+          "Feel free to explore other Store or create a new one to keep the fun going!",
       });
 
       navigate({ to: "/" });
     } catch {
-      toast.error("Failed to delete the community", {
+      toast.error("Failed to delete the store", {
         description: "Please try again later.",
       });
     }
@@ -61,13 +61,13 @@ const DeleteCommunityModal = ({ data, isOwner }: TModalProps) => {
           {isDeletingPending ? (
             <IconLoader2 className="animate-spin" size={22} />
           ) : (
-            "Delete community"
+            "Delete store"
           )}
         </button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Delete this community?</DialogTitle>
+          <DialogTitle>Delete this store?</DialogTitle>
           <DialogDescription className="pb-4">
             No worries, you can always create a new one later! Just keep in mind
             this action can't be undone. Let us know if you're sure.
@@ -81,7 +81,7 @@ const DeleteCommunityModal = ({ data, isOwner }: TModalProps) => {
               defaultValue={validName}
               onChange={(e) => setValidName(e?.target?.value)}
               className="w-full h-10 border bg-gray-50"
-              placeholder="Type the community name here"
+              placeholder="Type the store name here"
             />
           </label>
           <button
@@ -98,7 +98,7 @@ const DeleteCommunityModal = ({ data, isOwner }: TModalProps) => {
             {isDeletingPending ? (
               <IconLoader2 className="animate-spin" size={22} />
             ) : (
-              "Delete community"
+              "Delete store"
             )}
           </button>
         </DialogHeader>

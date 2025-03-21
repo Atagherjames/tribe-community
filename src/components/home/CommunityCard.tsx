@@ -62,7 +62,7 @@ const CommunityCard = ({ item, communityRedirection }: TCommunityCard) => {
           <span>•</span>
           <p>
             {item?.members?.length}{" "}
-            {item?.members?.length > 1 ? "Members" : "Member"}
+            {item?.members?.length > 1 ? "Followers" : "Follower"}
           </p>
           <span>•</span>
           <p className="font-medium capitalize">{item?.price}</p>

@@ -29,12 +29,7 @@ const Navbar = () => {
       <nav className="flex items-center justify-between w-full h-full mx-auto max-w-1075">
         <div className="flex items-center gap-4">
           <Link to="/" className="text-4xl font-bold">
-            <img
-              src={Logo}
-              alt="UNIJOS CAMPUS MARKET"
-              width={100}
-              height={44}
-            />
+            <img src={Logo} alt="UJ" width={100} height={44} />
           </Link>
           <NavDropdown />
         </div>

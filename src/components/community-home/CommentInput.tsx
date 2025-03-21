@@ -67,7 +67,7 @@ const CommentInput = ({ userId, postId }: TCommentInput) => {
       >
         <AvatarIcon
           avatar={userData?.avatar}
-          name={userData?.name || ""}
+          name={userData?.username || ""}
           id={userData?.id || ""}
           collectionName={userData?.collectionName || ""}
           className="rounded-full min-w-11 min-h-11 size-11"

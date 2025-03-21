@@ -4,7 +4,7 @@ import { getPocketBaseFileUrl } from "@/lib/getPocketBaseFileUrl";
 import { useLoggedState } from "@/lib/hooks/useLoggedState";
 import { Route } from "@/routes/_community_preview/$id/preview";
 import useUserStore from "@/store/UserStore";
-import { TCommunities } from "@/types/types";
+import { TStores } from "@/types/types";
 import { IconLink, IconLoader2 } from "@tabler/icons-react";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
@@ -13,7 +13,7 @@ import LeaveCommunityModal from "../modals/LeaveCommunityModal";
 import MainButton from "../buttons/MainButton";
 
 type TInfoBoxProps = {
-  data?: TCommunities;
+  data?: TStores;
   isLoading: boolean;
 };
 
@@ -29,7 +29,7 @@ const CommunityInfoBox = ({ data, isLoading }: TInfoBoxProps) => {
   const handleJoinToCommunity = async (communityId: string) => {
     if (!isLogged()) {
       navigate({ to: "/signup" });
-      toast.error("You need to be logged in to join the Community!", {
+      toast.error("You need to be logged in to follow the Store!", {
         description: "Please sign in or create an account.",
       });
       return;
@@ -39,11 +39,11 @@ const CommunityInfoBox = ({ data, isLoading }: TInfoBoxProps) => {
 
       await mutateAsyncJoinCommunity({ communityId, updatedMembers });
 
-      toast.success(`Welcome to the "${data?.name}" community!`, {
-        description: "You have successfully joined the community.",
+      toast.success(`Welcome to the "${data?.name}" store!`, {
+        description: "You have successfully followed the store.",
       });
     } catch {
-      toast.error("Failed to join the Community!", {
+      toast.error("Failed to follow the store!", {
         description: "Please try again later.",
       });
     }
@@ -104,7 +104,7 @@ const CommunityInfoBox = ({ data, isLoading }: TInfoBoxProps) => {
           to={isLogged() ? "/create-community" : "/signup"}
           className="flex items-center gap-1.5 text-sm text-grayout truncate hover:text-dark-primary hover:underline transition-all ease-in-out"
         >
-          <IconLink size={16} /> Lead Your Own Community
+          <IconLink size={16} /> Manage Your Own Store
         </Link>
         <hr className="w-full mt-4 mb-2" />
         <div className="flex items-center justify-between w-full">
@@ -117,7 +117,7 @@ const CommunityInfoBox = ({ data, isLoading }: TInfoBoxProps) => {
               </p>
             )}
             <p className="text-[13px] text-grayout">
-              {(data?.members?.length as number) > 1 ? "Members" : "Member"}
+              {(data?.members?.length as number) > 1 ? "Followers" : "Follower"}
             </p>
           </div>
           <div className="flex flex-col items-center w-20 border-gray-200 border-x">
@@ -152,7 +152,7 @@ const CommunityInfoBox = ({ data, isLoading }: TInfoBoxProps) => {
                 {isJoiningPending ? (
                   <IconLoader2 className="animate-spin" size={22} />
                 ) : (
-                  "Join Group"
+                  "Follow Store"
                 )}
               </MainButton>
             )}

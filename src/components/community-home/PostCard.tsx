@@ -67,7 +67,7 @@ const PostCard = ({ post }: TPostCard) => {
         <div className="flex items-center gap-2">
           <AvatarIcon
             avatar={post?.expand?.user?.avatar}
-            name={post?.expand?.user?.name || ""}
+            name={post?.expand?.user?.username || ""}
             id={post?.expand?.user?.id || ""}
             collectionName={post?.expand?.user?.collectionName || ""}
             className="rounded-full"
@@ -78,7 +78,7 @@ const PostCard = ({ post }: TPostCard) => {
               to={`/profile/${post?.expand?.user?.id}`}
               className="font-medium text-dark-primary hover:underline"
             >
-              {post?.expand?.user?.name}
+              {post?.expand?.user?.username}
             </Link>
             <span className="flex items-center text-grayout text-[13px] gap-1">
               <p>{dayjs(post?.created).format("MMM. DD. YYYY.")}</p>

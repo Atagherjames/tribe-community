@@ -1,9 +1,9 @@
 import { create } from "zustand";
-import { TCommunities } from "@/types/types";
+import { TStores } from "@/types/types";
 
 type TCommunitiesState = {
-  data: TCommunities | undefined;
-  setData: (posts: TCommunities | undefined) => void;
+  data: TStores | undefined;
+  setData: (posts: TStores | undefined) => void;
   isLoading: boolean;
   isError: boolean;
   setLoading: (isLoading: boolean) => void;

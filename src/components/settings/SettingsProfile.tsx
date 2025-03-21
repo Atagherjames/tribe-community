@@ -79,7 +79,7 @@ const SettingsProfile = ({ userData, userId }: TSettingsProfile) => {
 
   useEffect(() => {
     if (userData) {
-      setValue("name", userData.name || "");
+      setValue("name", userData.username || "");
       setValue("description", userData.description || "");
       setValue("location", userData.location || "");
     }
@@ -99,7 +99,7 @@ const SettingsProfile = ({ userData, userId }: TSettingsProfile) => {
         ) : (
           <AvatarIcon
             avatar={userData?.avatar}
-            name={userData?.name || ""}
+            name={userData?.username || ""}
             id={userData?.id || ""}
             collectionName={userData?.collectionName || ""}
             className="rounded-full !size-12"
@@ -126,7 +126,7 @@ const SettingsProfile = ({ userData, userId }: TSettingsProfile) => {
             <Input
               maxLength={28}
               {...register("name")}
-              defaultValue={userData?.name}
+              defaultValue={userData?.username}
               className="w-full border h-[52px] !text-base border-grayout/50"
               placeholder="Full name"
             />

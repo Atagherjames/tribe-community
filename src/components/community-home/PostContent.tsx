@@ -109,7 +109,7 @@ const PostContent = ({
         <div className="flex items-center gap-2">
           <AvatarIcon
             avatar={selectedPostData?.expand?.user?.avatar}
-            name={selectedPostData?.expand?.user?.name || ""}
+            name={selectedPostData?.expand?.user?.username || ""}
             id={selectedPostData?.expand?.user?.id || ""}
             collectionName={
               selectedPostData?.expand?.user?.collectionName || ""
@@ -121,7 +121,7 @@ const PostContent = ({
               to={`/profile/${selectedPostData?.expand?.user?.id}`}
               className="font-medium text-dark-primary hover:underline"
             >
-              {selectedPostData?.expand?.user?.name}
+              {selectedPostData?.expand?.user?.username}
             </Link>
             <span className="flex items-center text-grayout text-[13px] gap-1">
               <p>{dayjs(selectedPostData?.created).format("MMM. DD. YYYY.")}</p>

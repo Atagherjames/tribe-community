@@ -21,7 +21,7 @@ const PostComments = ({ postId }: TPostComments) => {
         <div key={item.id} className="flex items-center w-full gap-2">
           <AvatarIcon
             avatar={item?.expand?.user?.avatar}
-            name={item?.expand?.user?.name || ""}
+            name={item?.expand?.user?.username || ""}
             id={item?.expand?.user?.id || ""}
             collectionName={item?.expand?.user?.collectionName || ""}
             className="self-start rounded-full"
@@ -31,7 +31,7 @@ const PostComments = ({ postId }: TPostComments) => {
               to={`/profile/${item?.expand?.user?.id}`}
               className="font-medium text-dark-primary hover:underline"
             >
-              {item?.expand?.user?.name}
+              {item?.expand?.user?.username}
             </Link>
             <p className="text-dark-primary">{item?.content}</p>
           </div>

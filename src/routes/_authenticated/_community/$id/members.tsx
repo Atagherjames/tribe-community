@@ -75,7 +75,7 @@ function RouteComponent() {
         communityId: data?.id as string,
         updatedMembers,
       });
-      toast.success("Member is successfuly removed from the community.");
+      toast.success("Member is successfuly removed from the store.");
     } catch {
       toast.error("Error", {
         description: "Error. Please try again.",
@@ -86,7 +86,7 @@ function RouteComponent() {
   return (
     <main className="w-full h-full">
       <div className="w-full p-6 bg-white border rounded-xl">
-        <h1 className="mb-2 text-2xl font-bold">Members</h1>
+        <h1 className="mb-2 text-2xl font-bold">Followers</h1>
         <div className="flex flex-col w-full gap-2">
           {isLoading ? (
             <MembersLoader />
@@ -116,13 +116,13 @@ function RouteComponent() {
                       />
                     ) : (
                       <div className="flex items-center justify-center font-medium rounded-full min-h-12 min-w-12 bg-light-gray size-12">
-                        <p>{getInitials(member.name)}</p>
+                        <p>{getInitials(member.username)}</p>
                       </div>
                     )}
                   </div>
                   <div className="flex flex-col">
                     <p className="font-medium text-dark-primary">
-                      {member.name}
+                      {member.username}
                     </p>
                     <Link
                       to={`/profile/${member.id}`}
@@ -189,9 +189,7 @@ function RouteComponent() {
           )}
 
           {!isMember && !isLoading && (
-            <p>
-              Join the community to access and view other community members.
-            </p>
+            <p>Follow the store to access and view other store followers.</p>
           )}
         </div>
       </div>

@@ -73,7 +73,7 @@ function RouteComponent() {
             ) : (
               <AvatarIcon
                 avatar={userData?.avatar}
-                name={userData?.name || ""}
+                name={userData?.username || ""}
                 id={userData?.id || ""}
                 collectionName={userData?.collectionName || ""}
                 className="w-[220px] h-[220px] rounded-full text-5xl"
@@ -84,7 +84,7 @@ function RouteComponent() {
             <Skeleton className="h-5 mt-4 w-36" />
           ) : (
             <p className="mt-4 text-lg font-bold text-center">
-              {userData?.name}
+              {userData?.username}
             </p>
           )}
           {isUserDataLoading ? (

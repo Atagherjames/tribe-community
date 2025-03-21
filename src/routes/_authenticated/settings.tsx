@@ -35,7 +35,7 @@ const settingsList = [
   },
   {
     id: 3,
-    name: "communities",
+    name: "stores",
   },
 ];
 
@@ -81,7 +81,7 @@ function RouteComponent() {
 
       {page === "password" && <SettingsPassword userId={userId} />}
 
-      {page === "communities" && <SettingsCommunities />}
+      {page === "stores" && <SettingsCommunities />}
     </div>
   );
 }

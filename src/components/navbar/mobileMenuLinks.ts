@@ -6,7 +6,7 @@ export const mobileMenuLinks = [
   },
   {
     id: 2,
-    name: "Create a community",
+    name: "Create a store",
     url: "/create-community",
   },
   {

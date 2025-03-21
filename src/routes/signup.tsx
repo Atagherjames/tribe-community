@@ -46,7 +46,7 @@ function RouteComponent() {
 
   const onSubmit = (data: TSubmitData) => {
     const formattedData: TSignUpData = {
-      name: data?.name + " " + data?.last_name,
+      username: data?.name + " " + data?.last_name,
       email: data?.email,
       password: data?.password,
       passwordConfirm: data?.password,
@@ -66,7 +66,7 @@ function RouteComponent() {
             <img src={Logo} alt="Tribe" width={170} />
           </Link>
           <h1 className="text-2xl font-bold my-7 text-dark-text">
-            Everything you need to build community and make money online.
+            Everything you need to build a store and make money online.
           </h1>
           <ul className="flex flex-col gap-6 mt-2 text-lg font-medium max-sm:mx-auto">
             {textListSignUp?.map((item) => (
@@ -81,9 +81,9 @@ function RouteComponent() {
           </ul>
         </div>
         <div className="flex flex-col items-center p-8  max-sm:w-full max-sm:text-center w-[452px] h-full bg-white rounded-xl shadow-custom">
-          <h2 className="mb-8 text-2xl font-bold text-dark-primary">
-            Create your Tribe account
-          </h2>
+          <h4 className="mb-8 text-2xl font-bold text-dark-primary">
+            Create Your Store Account
+          </h4>
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col items-center w-full h-full gap-4"

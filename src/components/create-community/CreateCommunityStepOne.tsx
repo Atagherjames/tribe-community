@@ -25,7 +25,7 @@ const CreateCommunityStepOne = ({
         maxLength={20}
         {...register("name")}
         type="text"
-        placeholder="store name"
+        placeholder="Store name"
         className="w-full h-[52px] border text-dark-primary font-base px-4 rounded-md"
         hasError={!!errors?.name?.message}
         errorMessage={errors?.name?.message}

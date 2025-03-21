@@ -4,7 +4,7 @@ import { toast } from "sonner";
 import { pb } from "@/api/pocketbase";
 
 export type TSignUpData = {
-  name: string;
+  username: string;
   email: string;
   password: string;
   passwordConfirm: string;
@@ -70,9 +70,7 @@ export const useAuth = () => {
 
   const signUp = async (data: TSignUpData) => {
     setIsLoading(true);
-    console.log("signup");
     try {
-      console.log(data);
       await pb.collection("users").create(data);
       toast("Account Created!", {
         description:

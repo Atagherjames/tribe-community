@@ -25,7 +25,7 @@ const ChatMessages: React.FC<MessageListProps> = ({ messagesData }) => {
         <div key={message.id} className="flex items-start gap-3">
           <AvatarIcon
             avatar={message?.expand?.sender_id?.avatar as string}
-            name={message?.expand?.sender_id?.name as string}
+            name={message?.expand?.sender_id?.username as string}
             id={message?.expand?.sender_id?.id as string}
             collectionName={
               message?.expand?.sender_id?.collectionName as string
@@ -42,7 +42,7 @@ const ChatMessages: React.FC<MessageListProps> = ({ messagesData }) => {
               to={`/profile/${message?.sender_id}`}
               className="text-sm font-medium text-dark-primary hover:underline"
             >
-              {message?.expand?.sender_id?.name}
+              {message?.expand?.sender_id?.username}
             </Link>
             <p className="break-all">{message?.message}</p>
           </div>

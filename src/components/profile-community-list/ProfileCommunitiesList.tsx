@@ -60,7 +60,7 @@ const ProfileCommunitiesList = ({ id }: TCommunitiesList) => {
             ))
           ) : (
             <div className="space-y-1 text-sm">
-              <p>You haven't joined any communities yet.</p>
+              <p>You haven't followed any store yet.</p>
               <p>
                 Click{" "}
                 <Link
@@ -69,7 +69,7 @@ const ProfileCommunitiesList = ({ id }: TCommunitiesList) => {
                 >
                   here
                 </Link>{" "}
-                to discover the perfect community for you!
+                to discover the perfect store for you!
               </p>
             </div>
           )}

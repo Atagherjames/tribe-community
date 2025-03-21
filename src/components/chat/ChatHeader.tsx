@@ -11,7 +11,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ conversationUserData }) => (
     <div className="flex items-center gap-4">
       <AvatarIcon
         avatar={conversationUserData?.avatar as string}
-        name={conversationUserData?.name as string}
+        name={conversationUserData?.username as string}
         id={conversationUserData?.id as string}
         collectionName={conversationUserData?.collectionName as string}
         className="rounded-full size-11 min-w-11 min-h-11"
@@ -21,7 +21,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ conversationUserData }) => (
           to={`/profile/${conversationUserData?.id}`}
           className="font-medium text-dark-primary hover:underline"
         >
-          {conversationUserData?.name}
+          {conversationUserData?.username}
         </Link>
         <p className="text-sm text-grayout">
           {conversationUserData?.description || "No description yet."}

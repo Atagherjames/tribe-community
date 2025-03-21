@@ -156,14 +156,14 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
                 <div className="flex items-center gap-2.5 whitespace-nowrap">
                   <AvatarIcon
                     avatar={userData?.avatar}
-                    name={userData?.name || ""}
+                    name={userData?.username || ""}
                     id={userData?.id || ""}
                     collectionName={userData?.collectionName || ""}
                     className="rounded-full min-w-8 min-h-8 size-8"
                   />
                   <span className="flex items-center gap-1.5 max-sm:items-start max-sm:gap-0 max-sm:flex-col">
                     <p className="font-medium truncate text-dark-primary max-sm:max-w-64">
-                      {userData?.name}
+                      {userData?.username}
                     </p>
                     <div className="flex items-center gap-1.5 max-sm:items-start">
                       <p className="text-grayout">posting in</p>
@@ -264,7 +264,7 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
             >
               <AvatarIcon
                 avatar={userData?.avatar}
-                name={userData?.name || ""}
+                name={userData?.username || ""}
                 id={userData?.id || ""}
                 collectionName={userData?.collectionName || ""}
                 className="rounded-full"

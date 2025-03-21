@@ -176,7 +176,7 @@ function RouteComponent() {
           onChange={handleMessageInput}
           onKeyDown={handleKeyPress}
           type="text"
-          placeholder={`Message ${conversationUserData?.name || ""}`}
+          placeholder={`Message ${conversationUserData?.username || ""}`}
           className="w-full h-full px-4 py-2 border-none rounded-md outline-none"
         />
         {isMessageSending ? (

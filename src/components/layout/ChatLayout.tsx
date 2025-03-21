@@ -54,14 +54,14 @@ const ChatLayout = ({ children }: TChatLayout) => {
             >
               <AvatarIcon
                 avatar={notYou?.avatar}
-                name={notYou?.name}
+                name={notYou?.username}
                 id={notYou?.id}
                 collectionName={notYou?.collectionName}
                 className="rounded-full size-11 min-w-11 min-h-11"
               />
               <div className="flex flex-col items-start w-full">
                 <p className="font-bold truncate text-dark-primary">
-                  {notYou?.name}
+                  {notYou?.username}
                 </p>
                 <p className="w-full text-sm truncate text-start max-w-48">
                   {lastMessage?.message}

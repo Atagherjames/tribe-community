@@ -28,13 +28,13 @@ type TLinks = {
 const links: TLinks[] = [
   {
     id: 1,
-    name: " Create a community",
+    name: " Create a store",
     url: "/create-community",
     icon: <IconPlus size={24} className="bg-light-gray text-neutral-500" />,
   },
   {
     id: 2,
-    name: "Discover communities",
+    name: "Discover stores",
     url: "/",
     icon: (
       <IconBrandSafari size={24} className="bg-light-gray text-neutral-500" />

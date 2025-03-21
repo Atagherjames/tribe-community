@@ -14,12 +14,12 @@ import { Skeleton } from "../ui/skeleton";
 const secondaryLinks = [
   {
     id: 1,
-    name: "Create a community",
+    name: "Create a store",
     url: "/create-community",
   },
   {
     id: 2,
-    name: "Discover communities",
+    name: "Discover stores",
     url: "/",
   },
 ];
@@ -49,7 +49,7 @@ const NavbarUserMenuDropdown = () => {
           {!isLoading ? (
             <AvatarIcon
               avatar={data?.avatar}
-              name={data?.name || ""}
+              name={data?.username || ""}
               id={data?.id || ""}
               collectionName={data?.collectionName || ""}
               className="rounded-full size-9 min-w-9 min-h-9"

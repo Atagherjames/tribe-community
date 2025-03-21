@@ -8,13 +8,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { TCommunities } from "@/types/types";
+import { TStores } from "@/types/types";
 import { cn } from "@/lib/utils";
 import { IconLoader2 } from "@tabler/icons-react";
 import { useMutateLeaveCommunity } from "@/api/patch";
 
 type TModalProps = {
-  data?: TCommunities;
+  data?: TStores;
   userId?: string;
 };
 
@@ -39,12 +39,11 @@ const LeaveCommunityModal = ({ data, userId }: TModalProps) => {
         newMembers: updatedMembers,
       });
       navigate({ to: "/" });
-      toast.success("You have left the community successfully!", {
-        description:
-          "Feel free to explore other communities or create a new one!",
+      toast.success("You have left the store successfully!", {
+        description: "Feel free to explore other stores or create a new one!",
       });
     } catch {
-      toast.error("Failed to leave the community", {
+      toast.error("Failed to leave the store", {
         description: "Please try again later.",
       });
     }
@@ -63,17 +62,15 @@ const LeaveCommunityModal = ({ data, userId }: TModalProps) => {
           {isLeavingPending ? (
             <IconLoader2 className="animate-spin" size={22} />
           ) : (
-            "Leave community"
+            "Leave store"
           )}
         </button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>
-            Are you sure you want to leave this community?
-          </DialogTitle>
+          <DialogTitle>Are you sure you want to leave this store?</DialogTitle>
           <DialogDescription className="pb-4">
-            Leaving this community means you'll no longer have access to its
+            Leaving this store means you'll no longer have access to its
             discussions, events, and updates. Don't worry—you can always rejoin
             later if you change your mind
           </DialogDescription>
@@ -95,7 +92,7 @@ const LeaveCommunityModal = ({ data, userId }: TModalProps) => {
             {isLeavingPending ? (
               <IconLoader2 className="animate-spin" size={22} />
             ) : (
-              "Leave community"
+              "Leave store"
             )}
           </button>
         </DialogHeader>
