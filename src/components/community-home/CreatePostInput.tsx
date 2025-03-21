@@ -24,14 +24,21 @@ type TCreatePost = {
 type TSubmitData = {
   title: string;
   content: string;
+  price: string;
   media?: File | null;
 };
 
 const MAX_FILE_SIZE = 5242880; // 5MB
 
 const validationSchema = z.object({
-  title: z.string().min(1, "Title is required"),
-  content: z.string().min(1, "Content is required"),
+  title: z.string().min(1, "Product name is required"),
+  content: z.string().min(1, "Description is required"),
+  price: z
+    .string()
+    .min(1, "Price is required")
+    .refine((val) => !isNaN(parseFloat(val)) && parseFloat(val) > 0, {
+      message: "Price must be a valid number greater than 0",
+    }),
   media: z
     .instanceof(File)
     .optional()
@@ -70,6 +77,7 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
       const formData = new FormData();
       formData.append("content", data.content);
       formData.append("title", data.title);
+      formData.append("price", data.price);
       formData.append("user", userData?.id as string);
       formData.append("community", communityData?.id as string);
       if (data.media) formData.append("media", data.media as Blob);
@@ -93,9 +101,15 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
 
   const title = watch("title", "");
   const content = watch("content", "");
+  const price = watch("price", "");
 
   const isSubmitDisabled =
-    !title.trim() || !content.trim() || !!errors.title || !!errors.content;
+    !title.trim() ||
+    !content.trim() ||
+    !price.trim() ||
+    !!errors.title ||
+    !!errors.content ||
+    !!errors.price;
 
   const handleEmojiClick = (emojiData: EmojiClickData) => {
     const emoji = emojiData.emoji;
@@ -178,15 +192,27 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
                     data-testid="post-title-input"
                     {...register("title")}
                     type="text"
-                    placeholder="Title"
+                    placeholder="Product name"
                     className="pl-0 bg-white shadow-none placeholder:text-grayout h-[35px] font-bold !text-2xl"
                   />
                   <Textarea
                     data-testid="post-description-input"
                     {...register("content")}
-                    placeholder="Write something..."
+                    placeholder="Product Description"
                     className="pl-0 scrollbar-hide bg-white shadow-none border-none placeholder:text-grayout !text-base min-h-5 h-fit"
                   />
+
+                  <Input
+                    data-testid="post-price-input"
+                    {...register("price")}
+                    type="number"
+                    step="0.01"
+                    placeholder="Enter price ($)"
+                    className="pl-0 bg-white shadow-none placeholder:text-grayout h-[35px] font-bold !text-lg"
+                  />
+                  {errors.price && (
+                    <p className="text-red-500">{errors.price.message}</p>
+                  )}
                 </div>
               </div>
 

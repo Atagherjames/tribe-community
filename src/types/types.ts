@@ -65,6 +65,7 @@ export type TPost = {
   user: string;
   likes: string[];
   media: string;
+  price: number;
   expand: {
     user: TUserData;
   };

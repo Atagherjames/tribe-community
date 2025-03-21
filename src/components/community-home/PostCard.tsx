@@ -2,7 +2,6 @@ import { useCallback } from "react";
 import { Link, useNavigate, useSearch } from "@tanstack/react-router";
 import dayjs from "dayjs";
 import AvatarIcon from "@/components/avatar/AvatarIcon";
-import { getPocketBaseFileUrl } from "@/lib/getPocketBaseFileUrl";
 import highlightText from "@/lib/hightlightText";
 import { TPost } from "@/types/types";
 import { Button } from "@/components/ui/button";
@@ -56,6 +55,12 @@ const PostCard = ({ post }: TPostCard) => {
     [navigate]
   );
 
+  const handleBuy = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    // Redirect to purchase page or trigger purchase logic
+    navigate({ to: `/purchase/${post.id}` });
+  };
+
   return (
     <div
       data-testid="post-card"
@@ -91,19 +96,6 @@ const PostCard = ({ post }: TPostCard) => {
             {highlightText(post?.title || "", searchTerm || "")}
           </p>
           <p className="w-full h-12 line-clamp-2">{post?.content}</p>
-          {/* small screen media */}
-          {post?.media && (
-            <img
-              loading="lazy"
-              alt="Post media"
-              src={getPocketBaseFileUrl({
-                recordId: post.id,
-                filename: post.media,
-                collectionName: post.collectionName,
-              })}
-              className="border rounded-lg mt-3 mb-2 hidden max-sm:flex shadow !min-h-28 !min-w-28 size-28 object-cover"
-            />
-          )}
         </div>
         <div className="flex items-center w-full gap-5 mt-2 -ml-2">
           <div className="flex items-center gap-1">
@@ -142,20 +134,12 @@ const PostCard = ({ post }: TPostCard) => {
             </p>
           </div>
         </div>
+        <div className="mt-3">
+          <Button onClick={handleBuy} className="w-full  text-blue-50">
+            Buy ₦{post.price}
+          </Button>
+        </div>
       </div>
-      {/* large screen media */}
-      {post?.media && (
-        <img
-          loading="lazy"
-          alt="Post media"
-          src={getPocketBaseFileUrl({
-            recordId: post.id,
-            filename: post.media,
-            collectionName: post.collectionName,
-          })}
-          className="border rounded-lg shadow !min-h-28 !min-w-28 size-28 object-cover flex max-sm:hidden"
-        />
-      )}
     </div>
   );
 };
