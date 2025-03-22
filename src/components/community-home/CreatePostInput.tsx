@@ -207,7 +207,7 @@ const CreatePostInput = ({ isUserDataLoading, userData }: TCreatePost) => {
                     {...register("price")}
                     type="number"
                     step="0.01"
-                    placeholder="Enter price ($)"
+                    placeholder="Enter price (₦)"
                     className="pl-0 bg-white shadow-none placeholder:text-grayout h-[35px] font-bold !text-lg"
                   />
                   {errors.price && (
